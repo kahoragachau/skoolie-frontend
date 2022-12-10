@@ -16,6 +16,7 @@ import {
   } from '@chakra-ui/react';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+  import { useNavigate } from "react-router-dom"
   
   function Signup() {
     const [showPassword, setShowPassword] = useState(false);
@@ -23,6 +24,7 @@ import {
     const [password, setPassword] = useState("");
     const [role, setRole] = useState("")
 
+    const navigate = useNavigate()
     function handleSubmit(){
         fetch("https://mysite-i1e8.onrender.com/signup",{
             method: "POST",
@@ -107,7 +109,7 @@ import {
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user? <Link color={'blue.400'}>Login</Link>
+                  Already a user? <Link color={'blue.400'} to="/login">Login</Link>
                 </Text>
               </Stack>
             </Stack>
