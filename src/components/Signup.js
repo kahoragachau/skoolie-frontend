@@ -19,6 +19,33 @@ import {
   
   function Signup() {
     const [showPassword, setShowPassword] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [role, setRole] = useState("")
+
+    function handleSubmit(){
+        fetch("https://mysite-i1e8.onrender.com/signup",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username,
+                password,
+                role
+            })
+        })
+        .then((res) => {
+            console.log(res)
+            if(res.ok) {
+                res.json().then((ress) => console.log(ress))
+                // alert("Created User!!")
+            } else {
+                // res.json().then((err) => )
+                alert("Couldn't create User!!")
+            }
+        })
+    }
   
     return (
       <Flex
@@ -32,7 +59,7 @@ import {
               Sign up
             </Heading>
             <Text fontSize={'lg'} color={'gray.600'}>
-              to enjoy all of our cool features ✌️
+              to create your Schools ✌️
             </Text>
           </Stack>
           <Box
@@ -42,27 +69,15 @@ import {
             p={8}>
             <Stack spacing={4}>
               <HStack>
-                <Box>
-                  <FormControl id="firstName" isRequired>
-                    <FormLabel>First Name</FormLabel>
-                    <Input type="text" />
-                  </FormControl>
-                </Box>
-                <Box>
-                  <FormControl id="lastName">
-                    <FormLabel>Last Name</FormLabel>
-                    <Input type="text" />
-                  </FormControl>
-                </Box>
               </HStack>
               <FormControl id="email" isRequired>
-                <FormLabel>Email address</FormLabel>
-                <Input type="email" />
+                <FormLabel>Username</FormLabel>
+                <Input type="text"  onChange={(event) => setUsername(event.target.value)}/>
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
                 <InputGroup>
-                  <Input type={showPassword ? 'text' : 'password'} />
+                  <Input type={showPassword ? 'text' : 'password'} onChange={(event) => setPassword}/>
                   <InputRightElement h={'full'}>
                     <Button
                       variant={'ghost'}
@@ -74,6 +89,10 @@ import {
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
+              <FormControl id="email" isRequired>
+                <FormLabel>Role</FormLabel>
+                <Input type="text"  onChange={(event) => setRole(event.target.value)}/>
+              </FormControl>
               <Stack spacing={10} pt={2}>
                 <Button
                   loadingText="Submitting"
@@ -82,7 +101,7 @@ import {
                   color={'white'}
                   _hover={{
                     bg: 'blue.500',
-                  }}>
+                  }} onClick={handleSubmit}>
                   Sign up
                 </Button>
               </Stack>
