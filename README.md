@@ -20,3 +20,27 @@ An educator has the following responsibilites
 - Can add resource i.e books
 
 the Student can only view thier classes/school and thier attendance
+
+## LINKS
+---
+Our backend 
+- github link is [here](https://github.com/kahoragachau/School-backend)
+- Live link is [here](https://mysite-i1e8.onrender.com/owners)
+
+## SETUP INSTRUCTION
+---
+To test out our School frontend code follow these steps
+- Open your terminal and navigate to your desired directory.
+- Type `git clone git@github.com:kahoragachau/skoolie-frontend.git`
+- Type `cd skoolie-frontend`
+- Run `npm install` 
+- Run `npm start`
+
+## TECHNOLOGIES USED
+---
+- React
+- React-Router-Dom
+- ChakraUI
+- Vercel (for our frontend)
+- Render (for our backend)
+- Git
