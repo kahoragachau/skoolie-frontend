@@ -12,11 +12,12 @@ import {
     Heading,
     Text,
     useColorModeValue,
-    Link,
+    // Link,
   } from '@chakra-ui/react';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
   import { useNavigate } from "react-router-dom"
+  import { Link } from "react-router-dom"
   
   function Signup() {
     const [showPassword, setShowPassword] = useState(false);
@@ -40,7 +41,7 @@ import {
         .then((res) => {
             console.log(res)
             if(res.ok) {
-                res.json().then((ress) => console.log(ress))
+                res.json().then(() => navigate("/login"))
                 // alert("Created User!!")
             } else {
                 // res.json().then((err) => )
@@ -109,7 +110,7 @@ import {
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user? <Link color={'blue.400'} to="/login">Login</Link>
+                  Already a user? <Link color='red' to="/login">Login</Link>
                 </Text>
               </Stack>
             </Stack>
