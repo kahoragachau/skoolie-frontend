@@ -23,6 +23,7 @@ the Student can only view thier classes/school and thier attendance
 
 ## LINKS
 ---
+Frontend live link is [here](https://skoolie-frontend.vercel.app/)
 Our backend 
 - github link is [here](https://github.com/kahoragachau/School-backend)
 - Live link is [here](https://mysite-i1e8.onrender.com/owners)
