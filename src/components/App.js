@@ -8,7 +8,7 @@ function App() {
     <Routes>
       <Route path="/" exact element={<Signup />} />
       <Route path="/login" exact element={<Login />} />
-      <Route path="/dashboard" exact element={<Dashboard />}
+      <Route path="/dashboard" exact element={<Dashboard />} />
     </Routes>
   );
 }
